@@ -5,14 +5,15 @@
 78 -> третьей цифры нет
 32679 -> 6 */
 
-int num = new Random().Next();
-if (num > 999)
+int num;
+Console.Write("Введите число:  ");
+int.TryParse(Console.ReadLine()!, out num);
+int num2 = Math.Abs(num);
+if (num2 > 99)
 {
-    string ansStr = (num /= 10).ToString();
-    string ansStr2 = (num % 10).ToString(); 
-    Console.Write($"{num} -> {ansStr2}");
+    while (num2 > 999)
+        num2 /= 10;
+        Console.Write($"{num} -> {num2 % 10}");
 }
-else if (num < 100)
-{
-    Console.Write($"{num} -> Третей цыфры нет ");
-}
+else
+    Console.Write("Третей цыфры нет ");
